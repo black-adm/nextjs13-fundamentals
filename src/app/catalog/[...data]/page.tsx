@@ -1,4 +1,5 @@
 import { AddToCartButton } from "./add-to-cart-button"
+import { Example } from "./example"
 
 interface ShirtsProps {
     params: {
@@ -26,7 +27,7 @@ export default async function Product({ params }: ShirtsProps) {
                 </span>
 
                 {user && (
-                    <h1 className="text-lg font-normal text-black">
+                    <h1 className="text-lg text-center font-normal text-black">
                         Interesses de <strong className="font-extrabold">{user.name}</strong>
                     </h1>
                 )}
@@ -49,7 +50,9 @@ export default async function Product({ params }: ShirtsProps) {
                 </section>
 
 
-                <AddToCartButton params={params} />
+                <AddToCartButton>
+                    <Example />
+                </AddToCartButton>
             </div>
         </div>
 

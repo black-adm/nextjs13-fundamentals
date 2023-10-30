@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react"
+import { ReactNode, useState } from "react"
 
 type ParamsProps = {
     params: {
@@ -8,13 +8,11 @@ type ParamsProps = {
     }
 }
 
-export function AddToCartButton({ params }: ParamsProps) {
+export function AddToCartButton({ children }: { children: ReactNode }) {
     const [count, setCount] = useState(0)
-    const [message, setMessage] = useState("")
 
     function addToCart() {
         setCount((state) => state + 1)
-        setMessage(`Produto ${params.data} adicionado ao carrinho.`)
     }
 
     return (
@@ -25,10 +23,7 @@ export function AddToCartButton({ params }: ParamsProps) {
             >
                 Adicionar ao carrinho ({count})
             </button>
-
-            <small className="mt-3 tracking-wide text-xs font-medium text-black">
-                {message}
-            </small>
+            {children}
         </div>
     )
 }
